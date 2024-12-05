@@ -1,10 +1,8 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { CieIdPlugin } from './definitions';
-
-export class CieIdWeb extends WebPlugin implements CieIdPlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+export class CieIdPluginWeb extends WebPlugin {
+  async authenticate(options: { serviceProviderUrl: string }): Promise<{ status: string }> {
+    console.log("Web not supported for CieID authentication", options);
+    return { status: "unsupported" };
   }
 }
